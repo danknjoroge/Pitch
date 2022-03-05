@@ -4,6 +4,7 @@ from config import config_options
 
 bootstrap = Bootstrap()
 
+'''create app function'''
 def create_app(config_name):
 
     app = Flask(__name__)
