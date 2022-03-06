@@ -24,4 +24,10 @@ class Role(db.Model):
 
 
 
+# python3.6 manage.py db migrate -m "Initial Migration"
+# python3.6 manage.py db upgrade
+
     
+
+
+
