@@ -10,3 +10,8 @@ def index():
     '''
     title = 'Pitch Area. Where you pitch your ideas and get voted for'
     return render_template('index.html', title=title)
+
+
+@main.route('/home/')
+def home():
+    return render_template('home.html')
