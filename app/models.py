@@ -22,6 +22,7 @@ class User(UserMixin, db.Model):
     bio = db.Column(db.String(255))
     profile_pic_path = db.Column(db.String())
     pass_secure = db.Column(db.String(255))
+    pitches = db.relationship('Pitch',backref = 'user',lazy = "dynamic")
 
 
     @property
@@ -41,15 +42,27 @@ class User(UserMixin, db.Model):
    
 
 
-# class Role(db.Model):
-#     __tablename__ = 'roles'
-#     id = db.Column(db.Integer,primary_key = True)
-#     name = db.Column(db.String(255))
-#     users = db.relationship('User',backref = 'role',lazy="dynamic")
+class Pitches(db.Model):
+    __tablename__ = 'pitches'
+    id = db.Column(db.Integer,primary_key = True)
+    title = db.Column(db.String(255))
+    category = db.Column(db.String(255))
+    pitches = db.Column(db.String(255))
+    user_id = db.Column(db.Integer,db.ForeignKey("users.id"))
 
+    # users = db.relationship('User',backref = 'role',lazy="dynamic")
 
-#     def __repr__(self):
-#         return f'User {self.name}'
+    def save_pitches(self):
+        db.session.add(self)
+        db.session.commit()
+
+    @classmethod
+    def get_pitches(cls, id):
+        pitches= Pitches.query.filter_by(id=id).all()
+        return pitches
+
+    def __repr__(self):
+        return f'User {self.name}'
 
 
 

@@ -1,5 +1,5 @@
 from flask_wtf import FlaskForm
-from wtforms import SubmitField, TextAreaField
+from wtforms import SubmitField, TextAreaField,SelectField
 from wtforms.validators import DataRequired
 from ..models import User
 
@@ -10,7 +10,7 @@ class UpdateProfile(FlaskForm):
 
 # class AddPitch(FlaskForm):
 #     title = TextAreaField('Tell us about you.',validators = [DataRequired()])
-#     category = TextAreaField('')
+#     category = SelectField(u'Select Pitch Category', choices=[('cpp', 'C++'), ('py', 'Python'), ('text', 'Plain Text')])
 #     pitch = TextAreaField('Tell us about you.',validators = [DataRequired()])
 
 #     submit = SubmitField('Submit')
