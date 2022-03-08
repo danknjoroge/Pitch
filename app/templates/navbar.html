@@ -3,15 +3,19 @@
 
 
         <a class="navbar-brand" href="/"> Eazy Pitch </a>
-        <a class="navbar-brand" href="">Home</a>
+        {% if current_user.is_authenticated %}
+        <a class="navbar-brand" href="/home/">Pitches</a>
+        {%endif%}
+        <!-- <a class="navbar-brand" href="">Home</a> -->
         <!-- <a class="navbar-brand" href="/categories/">Categories</a> -->
 
 
         <ul class="nav navbar-nav navbar-right navbar-brand">
             {% if current_user.is_authenticated %}
+            <a href="{{url_for('main.profile',uname=current_user.username)}}">Profile</a>
             <a href="/categories/">Categories</a>
 
-            <a style="color:orangered;padding:15px;">{{current_user.username}}</a>
+            <!-- <a style="color:orangered;padding:15px;">{{current_user.username}}</a> -->
             <a href="{{url_for('auth.logout')}}">Sign out</a>
 
             {% else %}

@@ -3,5 +3,9 @@
 
 
 {% block content %} 
-    <h1>Ouch</h1>
-{% endblock %}
+<p>
+    Welcome {{current_user.username}}.
+
+    <h3>Checkout the following pitch categories</h3>
+    <input type="button" value="Add A Pitch">
+</p>{% endblock %}
