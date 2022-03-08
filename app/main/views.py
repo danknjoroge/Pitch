@@ -1,8 +1,8 @@
 from flask import redirect, render_template, request, url_for,abort
-from flask_login import login_required
+from flask_login import login_required, current_user
 from . import main
-from ..models import User
-from .forms import UpdateProfile
+from ..models import Pitches, User
+from .forms import PitchForm, UpdateProfile
 from .. import db
 
 # Views
@@ -16,9 +16,10 @@ def index():
     return render_template('index.html', title=title)
 
 
-@main.route('/home/')
+@main.route('/home',methods = ['GET','POST'])
 def home():
-    return render_template('home.html')
+    pitches= Pitches.query.all()
+    return render_template('home.html', pitches=pitches)
 
 
 @main.route('/categories/')
@@ -54,3 +55,30 @@ def update_profile(uname):
         return redirect(url_for('.profile',uname=user.username))
 
     return render_template('profile/update.html',form =form)
+
+
+
+##....
+@main.route('/pitch/', methods = ['GET','POST'])
+@login_required
+def pitch():
+    form = PitchForm()
+    if form.validate_on_submit():
+        title = form.title.data
+        category = form.category.data
+        pitches = form.pitches.data
+
+        # Updated review instance
+        new_pitch = Pitches(title=title,category=category,pitches=pitches,user=current_user)
+
+        # save review method
+        new_pitch.save_pitches()
+        return redirect(url_for('.home'))
+
+    return render_template('pitch.html',form=form)
+
+
+
+
+
+

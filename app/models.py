@@ -22,7 +22,7 @@ class User(UserMixin, db.Model):
     bio = db.Column(db.String(255))
     profile_pic_path = db.Column(db.String())
     pass_secure = db.Column(db.String(255))
-    pitches = db.relationship('Pitch',backref = 'user',lazy = "dynamic")
+    pitches = db.relationship('Pitches',backref = 'user',lazy = "dynamic")
 
 
     @property
@@ -66,7 +66,7 @@ class Pitches(db.Model):
 
 
 
-
+# python3.8 manage.py db init
 # python3.8 manage.py db migrate -m "Initial Migration"
 # python3.8 manage.py db upgrade
 
