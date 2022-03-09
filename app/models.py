@@ -18,7 +18,6 @@ class User(UserMixin, db.Model):
     firstname = db.Column(db.String(255))
     lastname = db.Column(db.String(255))
     email = db.Column(db.String(255),unique = True,index = True)
-    # role_id = db.Column(db.Integer,db.ForeignKey('roles.id'))
     bio = db.Column(db.String(255))
     profile_pic_path = db.Column(db.String())
     pass_secure = db.Column(db.String(255))
@@ -49,6 +48,8 @@ class Pitches(db.Model):
     category = db.Column(db.String(255))
     pitches = db.Column(db.String(2555))
     user_id = db.Column(db.Integer,db.ForeignKey("users.id"))
+    comment = db.relationship('Comments',backref = 'pitch',lazy = "dynamic")
+
 
     # users = db.relationship('User',backref = 'role',lazy="dynamic")
 

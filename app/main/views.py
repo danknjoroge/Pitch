@@ -68,7 +68,7 @@ def pitch():
         category = form.category.data
         pitches = form.pitches.data
 
-        # Updated review instance
+        # Updating 
         new_pitch = Pitches(title=title,category=category,pitches=pitches,user=current_user)
 
         # save review method
