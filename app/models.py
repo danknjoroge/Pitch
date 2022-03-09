@@ -72,6 +72,11 @@ class Comments(db.Model):
     pitch_id = db.Column(db.Integer, db.ForeignKey("pitches.id"))
 
 
+    def save_comments(self):
+        db.session.add(self)
+        db.session.commit()
+
+
 
 # python3.8 manage.py db init
 # python3.8 manage.py db migrate -m "Initial Migration"

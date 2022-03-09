@@ -1,8 +1,8 @@
 from flask import redirect, render_template, request, url_for,abort
 from flask_login import login_required, current_user
 from . import main
-from ..models import Pitches, User
-from .forms import PitchForm, UpdateProfile
+from ..models import Pitches, User,Comments
+from .forms import PitchForm, UpdateProfile, CommentForm
 from .. import db
 
 # Views
@@ -76,6 +76,24 @@ def pitch():
         return redirect(url_for('.home'))
 
     return render_template('pitch.html',form=form)
+
+
+
+@main.route('/comment/', methods=['GET','POST'])
+@login_required
+def comment():
+    form= CommentForm()
+    if form.validate_on_submit():
+        comment = form.comment.data
+
+        new_comment = Comments(comment=comment)
+
+        new_comment.save_comments()
+        return redirect(url_for('.home'))
+
+    return render_template('comment.html', form=form)
+
+
 
 
 
