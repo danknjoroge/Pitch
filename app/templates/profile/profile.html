@@ -41,23 +41,14 @@
       {% endif %}
     </div>
   </div>
-  {% for pitch in pitches %}
-  <h1>{{pitch.category}}</h1>
-  <h2>{{pitch.title}}</h2>
-  <p>{{pitch.pitches}}</p>
+  {% for pitc in pitch %}
+  <h1>{{pitc.category}}</h1>
+  <h2>{{pitc.title}}</h2>
+  <p>{{pitc.pitches}}</p>
   <a href="/comment/"><input type="button" value="Add A Comment"></a>
   <a href="/view/"><input type="button" value="View Comment"></a>
 
   {% endfor %}
-  {% if user == current_user %}
-  {% for pitch in pitches %}
-  <h1>{{pitch.category}}</h1>
-  <h2>{{pitch.title}}</h2>
-  <p>{{pitch.pitches}}</p>
-  <a href="/comment/"><input type="button" value="Add A Comment"></a>
-  <a href="/view/"><input type="button" value="View Comment"></a>
-
-  {% endfor %}
-  {% endif %}
+  
 </div>
 {% endblock %}
