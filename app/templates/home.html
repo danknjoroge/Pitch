@@ -9,23 +9,27 @@
 
 <div class="container text-center ">
     Welcome {{current_user.username}}.
-    <h3>Checkout the following pitch categories</h3>
-    <div class="container text-center m-5">
-        <div class="row">
-            <div class="col-md-12 m-5 bg-warning"> 
-                {% for pitch in pitches %}
-                    <h1>{{pitch.category}}</h1>
-                    <h2>{{pitch.title}}</h2>
-                    <p>{{pitch.pitches}}</p>
-                    <a href="/comment/"><input type="button" value="Add A Comment"></a> 
-                    <a href="/view/"><input type="button" value="View Comment"></a> 
+    <h3>Checkout the Pitches</h3>
+    <a href="/pitch/" class="pitch p-4"><input type="button" value="Add A New Pitch"></a>
 
-                {% endfor %}
-                
-            </div>
+    <div class="container">
+        <div class="row">
+            {% for pitch in pitches %}
+            <div class="col-md-4 card">
+                    <div class="thumbnail">
+                       
+                        <h1>{{pitch.category}}</h1>
+                        <h2>{{pitch.title}}</h2>
+                        <p>{{pitch.pitches}}</p>
+                        <a href="/comment/"><input type="button" value="Add A Comment"></a> 
+                        <a href="/view/"><input type="button" value="View Comment"></a> 
+    
+                        
+                    </div>
+                </div>
+            {% endfor %}
         </div>
     </div>
-    <a href="/pitch/"><input type="button" value="Add A New Pitch"></a>
 </div>
 
 {% endblock %}

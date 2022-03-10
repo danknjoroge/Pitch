@@ -1,0 +1,20 @@
+body{
+    background-color: rgb(150, 177, 177);
+    
+}
+input{
+    background-color: orangered;
+    border-radius: 15px;
+    color: white;
+    font-weight: bold;
+    border: none;
+    width:142px;
+    height: 32px;
+}
+.pitch{
+    margin-bottom: 240px;
+}
+.clas{
+    background-color: aliceblue;
+    margin-top: 240px;
+}

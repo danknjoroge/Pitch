@@ -1,8 +1,13 @@
-h1 {
+h2 {
     color: orangered;
+    text-shadow: 2px 2px 2px white;
+    font-weight: bold;
+    font-size: 42px;
+    text-align: center;
 }
 body{
     background-color: rgb(150, 177, 177);
+    
 }
 .you{
     background-image: url(../static/IMAGES/pitch.jpg);
@@ -11,4 +16,30 @@ body{
     background-position: center;
     height: 50vh;
 
+}
+img{
+    width: 444px;
+    align-self: center;
+}
+input{
+    background-color: orangered;
+    border-radius: 15px;
+    color: white;
+    font-weight: bold;
+    border: none;
+    width:122px;
+    height: 32px;
+}
+.main{
+    margin-left: 20px;
+}
+ul{
+    text-decoration: none;
+    text-align: center;
+    font-size: 23px;
+}
+p{
+    /* color: orangered; */
+    font-size: 25px;
+    font-weight: bold;
 }

@@ -13,15 +13,11 @@
       {%else%}
       <p> {{user.username| capitalize}} has no bio </p>
       {% endif %}
+      {% if user == current_user %}
+    <a href="{{url_for('main.update_profile',uname=user.username)}}">Add Bio</a>
+    {% endif %}
     </div>
-    {% for pitch in pitches %}
-    <h1>{{pitch.category}}</h1>
-    <h2>{{pitch.title}}</h2>
-    <p>{{pitch.pitches}}</p>
-    <a href="/comment/"><input type="button" value="Add A Comment"></a>
-    <a href="/view/"><input type="button" value="View Comment"></a>
-
-    {% endfor %}
+   
 
     <!--Display profile photo-->
     <div class="col-md-4">
@@ -32,9 +28,27 @@
       <p>No profile picture</p>
       {% endif %}
     </div>
-    {% if user == current_user %}
+    <!-- {% if user == current_user %}
     <a href="{{url_for('main.update_profile',uname=user.username)}}">Edit profile</a>
-    {% endif %}
+    {% endif %} -->
   </div>
+  {% for pitch in pitches %}
+  <h1>{{pitch.category}}</h1>
+  <h2>{{pitch.title}}</h2>
+  <p>{{pitch.pitches}}</p>
+  <a href="/comment/"><input type="button" value="Add A Comment"></a>
+  <a href="/view/"><input type="button" value="View Comment"></a>
+
+  {% endfor %}
+  {% if user == current_user %}
+  {% for pitch in pitches %}
+  <h1>{{pitch.category}}</h1>
+  <h2>{{pitch.title}}</h2>
+  <p>{{pitch.pitches}}</p>
+  <a href="/comment/"><input type="button" value="Add A Comment"></a>
+  <a href="/view/"><input type="button" value="View Comment"></a>
+
+  {% endfor %}
+  {% endif %}
 </div>
 {% endblock %}
