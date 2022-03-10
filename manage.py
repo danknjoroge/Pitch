@@ -4,7 +4,7 @@ from app.models import User, Pitches, Comments
 from flask_migrate import Migrate, MigrateCommand
 
 # create app instance
-app = create_app('development')
+app = create_app('production')
 # app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///app.db'
 
 manager = Manager(app)
