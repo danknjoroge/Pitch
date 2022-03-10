@@ -1,65 +1,31 @@
 {% extends 'base.html'%}
 
-
+{% block styles%}
+    {{ super() }}
+    <link rel="stylesheet" href="{{url_for('static',filename='css/home.css')}}">
+{% endblock %}
 
 {% block content %} 
 
-<!-- {% for pitch in pitches %}
-    
-        
-            <h1>{{pitch.category}}</h1>
-            <h2>{{pitch.title}}</h2>
-            <p>{{pitch.pitches}}</p>
-            <input type="button" value="ADD COMMENT">
- 
-{% endfor %} -->
-
-
-
-<div class="container text-center">
+<div class="container text-center ">
     Welcome {{current_user.username}}.
-
     <h3>Checkout the following pitch categories</h3>
-
-
-    <div class="container text-center">
+    <div class="container text-center m-5">
         <div class="row">
             <div class="col-md-12 m-5 bg-warning"> 
                 {% for pitch in pitches %}
                     <h1>{{pitch.category}}</h1>
                     <h2>{{pitch.title}}</h2>
                     <p>{{pitch.pitches}}</p>
-                    <a href="/comment/"><input type="button" value="Add A Comment"></a>
- 
+                    <a href="/comment/"><input type="button" value="Add A Comment"></a> 
+                    <a href="/view/"><input type="button" value="View Comment"></a> 
+
                 {% endfor %}
-                </div>
-            <!-- <div class="col-md-4">
-                <h3>Business</h3>
-                <p>A business pitch is a business plan that you present to your potential investors to secure funding. The pitch helps you explain your business to investors to enable them to make the right decisions.</p>
-            </div> -->
-            <!-- <div class="col-md-4">
-                <h3>Agriculture</h3>
-                <p>The elevator pitch is broken down into four sections—introduction, problem, solution, ask. Start with a brief introduction (who you are and where you're from). You may want to talk more about yourself, but it's better to spend time in the other sections, using your time to describe the problem and potential solutions</p>
-            </div> -->
+                
+            </div>
         </div>
     </div>
-    <!-- <div class="container text-center">
-        <div class="row">
-            <div class="col-md-4">
-                <h3>Sports</h3>
-                <p>Tech Domains believes in the power of innovative ideas to build the future. But, we understand that it takes a lot to turn an idea into a startup. With this in mind, we launched Pitch. Tech as a way to help idea-stage entrepreneurs get the visibility, validation and resources they need to launch their startup.</p>
-            </div>
-            <div class="col-md-4">
-                <h3>Fitness</h3>
-                <p>A business pitch is a business plan that you present to your potential investors to secure funding. The pitch helps you explain your business to investors to enable them to make the right decisions.</p>
-            </div>
-            <div class="col-md-4">
-                <h3>Marketing</h3>
-                <p>The elevator pitch is broken down into four sections—introduction, problem, solution, ask. Start with a brief introduction (who you are and where you're from). You may want to talk more about yourself, but it's better to spend time in the other sections, using your time to describe the problem and potential solutions</p>
-            </div>
-        </div>
-    </div> -->
-
     <a href="/pitch/"><input type="button" value="Add A New Pitch"></a>
+</div>
 
-</div>{% endblock %}
+{% endblock %}

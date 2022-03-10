@@ -1,0 +1,14 @@
+h1 {
+    color: orangered;
+}
+body{
+    background-color: rgb(150, 177, 177);
+}
+.you{
+    background-image: url(../static/IMAGES/pitch.jpg);
+    width: 50%;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 50vh;
+
+}

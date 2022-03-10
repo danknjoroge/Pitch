@@ -17,16 +17,22 @@ def index():
 
 
 @main.route('/home',methods = ['GET','POST'])
+@login_required
 def home():
     pitches= Pitches.query.all()
-    return render_template('home.html', pitches=pitches)
+    comments= Comments.query.all()
+    return render_template('home.html', pitches=pitches, comments=comments)
+
+@main.route('/view/',methods = ['GET','POST'])
+@login_required
+def view():
+    comments= Comments.query.all()
+    return render_template('view.html', comments=comments)
 
 
-@main.route('/categories/')
-def categories():
-    return render_template('categories.html')
-
-
+# @main.route('/categories/')
+# def categories():
+#     return render_template('categories.html')
 
 @main.route('/user/<uname>')
 def profile(uname):
