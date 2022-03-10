@@ -4,6 +4,8 @@ from wtforms.validators import DataRequired
 from ..models import User
 
 class UpdateProfile(FlaskForm):
+    fullname = StringField('FullName.',validators = [DataRequired()])
+
     bio = TextAreaField('Tell us about you.',validators = [DataRequired()])
     submit = SubmitField('Submit')
 
